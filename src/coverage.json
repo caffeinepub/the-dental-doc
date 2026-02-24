@@ -1,0 +1,92 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T05:28:55.643Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 5,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-19",
+        "summary": "Add a password authentication prompt that appears when a user attempts to edit or delete a patient record in the history tab, requiring the password '020202' before allowing the action to proceed",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PasswordPromptModal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PasswordPromptModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Add edit functionality to the patient history tab that allows modifying existing patient records (name, age, gender, address, phone number) after successful password authentication",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PatientEditModal.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/PatientHistoryTab.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PatientEditModal.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/PatientHistoryTab.tsx"
+        ]
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Add delete functionality to the patient history tab that removes patient records from the database after successful password authentication",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/DeleteConfirmationDialog.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/PatientHistoryTab.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/DeleteConfirmationDialog.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/PatientHistoryTab.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Create a backend function in backend/main.mo to update an existing patient record by registration number, accepting all patient fields (firstName, lastName, birthdate, gender, address, phoneNumber) and returning the updated patient",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Create a backend function in backend/main.mo to delete a patient record by registration number, removing it from the patients storage",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/DeleteConfirmationDialog.tsx",
+    "frontend/src/components/PasswordPromptModal.tsx",
+    "frontend/src/components/PatientEditModal.tsx",
+    "frontend/src/components/PatientHistoryTab.tsx",
+    "frontend/src/components/PatientRegistrationForm.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

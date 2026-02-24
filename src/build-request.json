@@ -1,0 +1,114 @@
+{
+  "kind": "build_request",
+  "title": "Add password authentication for patient record modifications and deletions",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Add a password authentication prompt that appears when a user attempts to edit or delete a patient record in the history tab, requiring the password '020202' before allowing the action to proceed",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "in the history tab, I need to be able to modify or delete the records, but to do so it should need me to aunthticate either via password which is 020202"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking edit or delete on a patient record triggers a password prompt modal",
+        "Entering the correct password '020202' allows the action to proceed",
+        "Entering an incorrect password displays an error message and prevents the action",
+        "The password prompt interface matches the app's cyan-themed medical aesthetic"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Add edit functionality to the patient history tab that allows modifying existing patient records (name, age, gender, address, phone number) after successful password authentication",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "I need to be able to modify or delete the records"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each patient record in the history list displays an edit button",
+        "Clicking edit opens a form pre-populated with the patient's current information",
+        "Successfully authenticating allows saving the modified patient data to the backend",
+        "The updated patient information is reflected immediately in the history list after saving",
+        "The registration number remains unchanged when editing other patient fields"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Add delete functionality to the patient history tab that removes patient records from the database after successful password authentication",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "I need to be able to modify or delete the records"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each patient record in the history list displays a delete button",
+        "Clicking delete prompts for password authentication before proceeding",
+        "After successful authentication, display a confirmation dialog asking 'Are you sure you want to delete this patient record?'",
+        "Confirming deletion removes the patient record from the backend database",
+        "The patient record is removed from the history list immediately after successful deletion",
+        "Canceling the confirmation dialog aborts the deletion process"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Create a backend function in backend/main.mo to update an existing patient record by registration number, accepting all patient fields (firstName, lastName, birthdate, gender, address, phoneNumber) and returning the updated patient",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The function accepts a registration number and all patient fields as parameters",
+        "The function locates the patient by registration number and updates their information",
+        "The registration number itself cannot be changed",
+        "The function returns the updated patient record or an error if not found"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Create a backend function in backend/main.mo to delete a patient record by registration number, removing it from the patients storage",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The function accepts a registration number as parameter",
+        "The function removes the patient from the patients HashMap",
+        "The function returns a success indicator or error if the patient is not found",
+        "Deleted registration numbers do not affect the sequential numbering for new patients"
+      ]
+    }
+  ],
+  "constraints": [
+    "The password must be exactly '020202' as specified by the user",
+    "Password authentication is required before any edit or delete action can proceed",
+    "The registration number field must remain immutable during edits"
+  ],
+  "nonGoals": [
+    "Implementing a configurable password system or password management interface",
+    "Adding user accounts or multi-user authentication",
+    "Implementing password encryption or secure storage (hardcoded password is acceptable per user request)",
+    "Adding audit logs or tracking of who modified/deleted records"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

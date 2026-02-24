@@ -1,0 +1,81 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add password authentication for patient record modifications and deletions",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Add password authentication prompt that appears when attempting to edit or delete a patient record, requiring password '020202' before allowing the action",
+      "acceptanceCriteria": [
+        "Clicking edit or delete on a patient record triggers a password prompt modal",
+        "Entering the correct password '020202' allows the action to proceed",
+        "Entering an incorrect password displays an error message and prevents the action",
+        "The password prompt interface matches the app's cyan-themed medical aesthetic"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PasswordPromptModal.tsx",
+          "operation": "create",
+          "description": "Create a password authentication modal component that prompts for password '020202', displays error messages for incorrect passwords, and confirms successful authentication before invoking callback actions. Style with cyan theme matching the app aesthetic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Add edit functionality to patient history that allows modifying existing patient records after successful password authentication",
+      "acceptanceCriteria": [
+        "Each patient record in the history list displays an edit button",
+        "Clicking edit opens a form pre-populated with the patient's current information",
+        "Successfully authenticating allows saving the modified patient data to the backend",
+        "The updated patient information is reflected immediately in the history list after saving",
+        "The registration number remains unchanged when editing other patient fields"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PatientEditModal.tsx",
+          "operation": "create",
+          "description": "Create a modal component containing a form pre-populated with patient data (firstName, lastName, birthdate, gender, address, phoneNumber) with registration number displayed as read-only. Include save and cancel buttons with validation matching the registration form styling."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add updatePatient mutation hook that calls the backend updatePatient function and invalidates the getAllPatientsSorted query cache to refresh the patient list after successful update."
+        },
+        {
+          "path": "frontend/src/components/PatientHistoryTab.tsx",
+          "operation": "modify",
+          "description": "Add edit button to each patient record row. Wire up edit button click to trigger password authentication via PasswordPromptModal, then open PatientEditModal with selected patient data upon successful authentication. Integrate updatePatient mutation to handle form submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Add delete functionality to patient history that removes patient records after successful password authentication",
+      "acceptanceCriteria": [
+        "Each patient record in the history list displays a delete button",
+        "Clicking delete prompts for password authentication before proceeding",
+        "After successful authentication, display a confirmation dialog asking 'Are you sure you want to delete this patient record?'",
+        "Confirming deletion removes the patient record from the backend database",
+        "The patient record is removed from the history list immediately after successful deletion",
+        "Canceling the confirmation dialog aborts the deletion process"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DeleteConfirmationDialog.tsx",
+          "operation": "create",
+          "description": "Create a confirmation dialog component that displays 'Are you sure you want to delete this patient record?' with confirm and cancel buttons styled to match the app theme. Accept onConfirm and onCancel callback props."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add deletePatient mutation hook that calls the backend deletePatient function with registration number and invalidates the getAllPatientsSorted query cache to refresh the patient list after successful deletion."
+        },
+        {
+          "path": "frontend/src/components/PatientHistoryTab.tsx",
+          "operation": "modify",
+          "description": "Add delete button to each patient record row. Wire up delete button click to trigger password authentication via PasswordPromptModal, then show DeleteConfirmationDialog upon successful authentication. Integrate deletePatient mutation to execute deletion when user confirms in the dialog."
+        }
+      ]
+    }
+  ]
+}

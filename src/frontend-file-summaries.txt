@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component with cyan-themed header, tab navigation for switching between patient registration and history views, and comprehensive footer containing clinic and doctor information with Caffeine attribution.",
+  "frontend/src/components/PatientRegistrationForm.tsx": "Patient registration form component with fields for name, age, gender, address, and phone number, featuring form validation, Gender enum conversion, and PDF generation via browser print on submission with all patient data passed to the backend.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including adding patients, updating patients, deleting patients, fetching individual patients, and retrieving all patients sorted with proper cache invalidation.",
+  "frontend/src/utils/pdfGenerator.ts": "PDF generation utility using browser's native print functionality with flexbox layout ensuring the footer appears at the bottom of the page, featuring white text on cyan header, compact patient details, expanded clinical notes area, and footer with clinic and doctor information.",
+  "frontend/src/index.css": "Global styles with OKLCH color system customized for cyan primary color theme suitable for medical/dental clinic branding.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with cyan color palette and custom design tokens for the dental clinic theme.",
+  "frontend/package.json": "Package configuration with jsPDF dependency added for PDF generation functionality.",
+  "frontend/src/components/PatientHistoryTab.tsx": "Patient history tab component displaying a searchable list of all registered patients with real-time filtering, edit and delete buttons that require password authentication ('020202') before allowing modifications, and integrated modals for editing patient information and confirming deletions.",
+  "frontend/public/manifest.json": "Web app manifest file defining The Dental Doc PWA metadata including name, theme color (#06b6d4 cyan), standalone display mode, and icon references for Android installation.",
+  "frontend/index.html": "HTML entry point with PWA meta tags including theme-color, manifest link, and apple-touch-icon for iOS home screen installation.",
+  "frontend/public/sw.js": "Service worker implementing cache-first strategy for static assets with install, activate, and fetch event handlers for offline functionality.",
+  "frontend/src/main.tsx": "Application entry point with React initialization and service worker registration for PWA support in production environment.",
+  "frontend/src/components/PasswordPromptModal.tsx": "Password authentication modal component that prompts for password '020202', displays error messages for incorrect passwords, and confirms successful authentication before invoking callback actions with cyan-themed styling.",
+  "frontend/src/components/PatientEditModal.tsx": "Patient edit modal component with a form pre-populated with patient data (firstName, lastName, age, gender, address, phoneNumber) with registration number displayed as read-only, including save and cancel buttons with validation matching the registration form styling.",
+  "frontend/src/components/DeleteConfirmationDialog.tsx": "Confirmation dialog component that displays 'Are you sure you want to delete this patient record?' with confirm and cancel buttons styled to match the app's cyan theme, accepting onConfirm and onCancel callback props."
+}

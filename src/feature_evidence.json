@@ -1,0 +1,63 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-password-authentication-prompt-that-appears-when-a-user-attempts-to-edit-or-delete-a-patient-record-in-the-history-tab-requiring-the-password-020202-before-allowing-the-action-to-proceed",
+      "featureTitle": "Add a password authentication prompt that appears when a user attempts to edit or delete a patient record in the history tab, requiring the password '020202' before allowing the action to proceed",
+      "files": [
+        "frontend/src/components/PasswordPromptModal.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-edit-functionality-to-the-patient-history-tab-that-allows-modifying-existing-patient-records-name-age-gender-address-phone-number-after-successful-password-authentication",
+      "featureTitle": "Add edit functionality to the patient history tab that allows modifying existing patient records (name, age, gender, address, phone number) after successful password authentication",
+      "files": [
+        "frontend/src/components/PatientEditModal.tsx",
+        "frontend/src/components/PatientHistoryTab.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-delete-functionality-to-the-patient-history-tab-that-removes-patient-records-from-the-database-after-successful-password-authentication",
+      "featureTitle": "Add delete functionality to the patient history tab that removes patient records from the database after successful password authentication",
+      "files": [
+        "frontend/src/components/DeleteConfirmationDialog.tsx",
+        "frontend/src/components/PatientHistoryTab.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

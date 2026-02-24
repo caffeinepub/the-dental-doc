@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 13,
+  "summary": "Android mobile app for dental clinic patient database management with automated registration numbers and PDF generation for patient case papers, with PWA support for installable app-like experience",
+  "architectural_notes": [
+    "Android mobile application targeting clinic use",
+    "PDF layout: cyan header with white text 'THE DENTAL DOC', patient details section, blank space for notes, footer with clinic info (left) and doctor registration (right)",
+    "Clinic details: The Dental Doc, Shop No. 137, first floor, Gera Imperium, Kadmaba Plateau, Goa | Phone: +91-7020391073 | Hours: 10:30-7:30 PM (Sundays closed)",
+    "Doctor details: Dr. Chandrakant Sharma, Reg No: A-1340",
+    "PDF must fit on a single page with proper scaling to avoid multi-page printouts",
+    "Patient history view with search functionality for viewing past registrations",
+    "PWA support with manifest.json and service worker for offline functionality and app installation",
+    "Authentication required for editing/deleting patient records with password: 020202"
+  ],
+  "known_issues": [
+    "PDF footer currently displays in the middle of the page instead of at the bottom"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-patient-registration-form-that-collects-name-age-gender-address-and-phone-number",
+      "title": "Create a patient registration form that collects name, age, gender, address, and phone number",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-a-pdf-case-paper-with-a-cyan-header-displaying-the-dental-doc-in-white-text-followed-by-patient-details-substantial-blank-space-for-notes-and-a-footer-containing-clinic-information-on-the-left-address-the-dental-doc-shop-no-137-first-floor-gera-imperium-next-to-the-gera-school-kadmaba-plateau-goa-phone-91-7020391073-timings-10-30-7-30-pm-sundays-closed-and-doctor-registration-details-on-the-right-dr-chandrakant-sharma-reg-no-a-1340",
+      "title": "Generate a PDF case paper with a cyan header displaying 'THE DENTAL DOC' in white text, followed by patient details, substantial blank space for notes, and a footer containing clinic information on the left (address: The Dental Doc, Shop No. 137, first floor, Gera Imperium, next to The Gera School, Kadmaba Plateau, Goa; phone: +91-7020391073; timings: 10:30-7:30 PM, Sundays closed) and doctor registration details on the right (Dr. Chandrakant Sharma, Reg No: A-1340)",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-print-button-that-triggers-pdf-generation-and-opens-the-system-print-dialog",
+      "title": "Add a print button that triggers PDF generation and opens the system print dialog",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-mobile-optimized-interface-with-a-clean-professional-medical-aesthetic-using-a-cyan-and-white-color-scheme-that-reflects-the-clinic-s-branding-with-clear-typography-for-readability-and-intuitive-form-layouts-suitable-for-quick-patient-intake",
+      "title": "Design a mobile-optimized interface with a clean, professional medical aesthetic using a cyan and white color scheme that reflects the clinic's branding, with clear typography for readability and intuitive form layouts suitable for quick patient intake",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reduce-pdf-content-sizing-and-spacing-to-ensure-all-patient-information-header-notes-area-and-footer-fit-on-a-single-printed-page",
+      "title": "Reduce PDF content sizing and spacing to ensure all patient information, header, notes area, and footer fit on a single printed page",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-pdf-header-displays-the-dental-doc-in-white-text-on-a-cyan-background-exactly-as-specified-maintaining-clinic-branding-consistency",
+      "title": "Ensure the PDF header displays 'THE DENTAL DOC' in white text on a cyan background exactly as specified, maintaining clinic branding consistency",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-modify-the-pdf-generation-logic-in-frontend-src-utils-pdfgenerator-ts-to-position-the-footer-at-the-bottom-of-the-page-instead-of-the-middle-by-adjusting-the-css-layout-to-use-absolute-positioning-or-flexbox-with-appropriate-spacing",
+      "title": "Modify the PDF generation logic in frontend/src/utils/pdfGenerator.ts to position the footer at the bottom of the page instead of the middle by adjusting the CSS layout to use absolute positioning or flexbox with appropriate spacing",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-tab-component-to-the-main-interface-that-displays-a-searchable-patient-history-list-showing-all-registered-patients-with-their-registration-numbers-names-and-key-details",
+      "title": "Add a new tab component to the main interface that displays a searchable patient history list, showing all registered patients with their registration numbers, names, and key details",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-search-functionality-in-the-patient-history-tab-that-filters-patients-by-registration-number-first-name-or-last-name-in-real-time-as-the-user-types",
+      "title": "Implement search functionality in the patient history tab that filters patients by registration number, first name, or last name in real-time as the user types",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-web-app-manifest-file-frontend-public-manifest-json-with-app-metadata-including-name-the-dental-doc-short-name-description-theme-color-matching-the-cyan-branding-06b6d4-background-color-display-mode-standalone-start-url-and-icons-array-with-appropriate-sizes-192x192-512x512-for-android-installation",
+      "title": "Create a web app manifest file (frontend/public/manifest.json) with app metadata including name 'The Dental Doc', short_name, description, theme_color matching the cyan branding (#06b6d4), background_color, display mode 'standalone', start_url, and icons array with appropriate sizes (192x192, 512x512) for Android installation",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-link-the-manifest-file-in-frontend-index-html-by-adding-a-link-rel-manifest-href-manifest-json-tag-in-the-head-section",
+      "title": "Link the manifest file in frontend/index.html by adding a <link rel='manifest' href='/manifest.json'> tag in the head section",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-theme-color-meta-tag-to-frontend-index-html-with-the-cyan-color-value-06b6d4-to-ensure-the-browser-s-address-bar-matches-the-app-branding-on-mobile-devices",
+      "title": "Add theme-color meta tag to frontend/index.html with the cyan color value (#06b6d4) to ensure the browser's address bar matches the app branding on mobile devices",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-service-worker-file-frontend-public-sw-js-that-implements-basic-caching-strategies-for-offline-functionality-caching-the-app-shell-html-css-js-and-static-assets-on-install-and-serving-cached-content-when-offline",
+      "title": "Create a service worker file (frontend/public/sw.js) that implements basic caching strategies for offline functionality, caching the app shell (HTML, CSS, JS) and static assets on install, and serving cached content when offline",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-apple-touch-icon-meta-tags-to-frontend-index-html-for-ios-devices-to-enable-proper-home-screen-installation-on-iphones-and-ipads",
+      "title": "Add apple-touch-icon meta tags to frontend/index.html for iOS devices to enable proper home screen installation on iPhones and iPads",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-password-authentication-prompt-that-appears-when-a-user-attempts-to-edit-or-delete-a-patient-record-in-the-history-tab-requiring-the-password-020202-before-allowing-the-action-to-proceed",
+      "title": "Add a password authentication prompt that appears when a user attempts to edit or delete a patient record in the history tab, requiring the password '020202' before allowing the action to proceed",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-edit-functionality-to-the-patient-history-tab-that-allows-modifying-existing-patient-records-name-age-gender-address-phone-number-after-successful-password-authentication",
+      "title": "Add edit functionality to the patient history tab that allows modifying existing patient records (name, age, gender, address, phone number) after successful password authentication",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-delete-functionality-to-the-patient-history-tab-that-removes-patient-records-from-the-database-after-successful-password-authentication",
+      "title": "Add delete functionality to the patient history tab that removes patient records from the database after successful password authentication",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Patient registration form with name, age, gender, address, and phone number fields",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Automatic registration number generation using year/sequence format (e.g., 2026/10)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "PDF generation with clinic header, patient details, blank space, and footer",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Patient database storage for registered patients",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Print functionality for generated PDF case papers",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement automatic registration number generation in the format YYYY/N where YYYY is the current year and N is the sequential patient number for that year (e.g., 2026/10 for the 10th patient in 2026)",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Store patient records in the backend database with all collected information including the auto-generated registration number",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Investigate and resolve the runtime error that is currently preventing the application from functioning correctly",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Fix PDF footer positioning to appear at the bottom of the page instead of the middle",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add a patient history tab with search functionality to view and search registered patients",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add PWA (Progressive Web App) support with manifest and service worker for offline capability and installable app experience",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Register the service worker in frontend/src/main.tsx after the app mounts by checking if 'serviceWorker' is supported in the navigator and registering '/sw.js', with appropriate error handling",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add authentication requirement (password 020202) for modifying or deleting patient records in the history tab to prevent unauthorized access",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Implement edit functionality for patient records in the history tab with authentication protection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Implement delete functionality for patient records in the history tab with authentication protection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Create a backend function in backend/main.mo to update an existing patient record by registration number, accepting all patient fields (firstName, lastName, birthdate, gender, address, phoneNumber) and returning the updated patient",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Create a backend function in backend/main.mo to delete a patient record by registration number, removing it from the patients storage",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "The Dental Doc",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
